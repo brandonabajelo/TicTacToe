@@ -25,6 +25,7 @@ def player_input():
         return ('o', 'x')
 
 def place_marker(board, marker, position):
+    
     board[position] = marker
 
 
@@ -52,7 +53,7 @@ def choose_first():
         return 'Player 2'
 
 def space_check(board, position):
-    return board[position] == ''
+    return board[position] == ' '
 
 def full_board_check(board):
     for i in range(1,10):
@@ -64,6 +65,7 @@ def player_choice(board):
     position = ''
     while position not in '1 2 3 4 5 6 7 8 9'.split() or not space_check(board, int(position)):
         position = raw_input('Choose your next move (1-9)\n')
+        display_board(board)
 
     return int(position)
 
@@ -101,6 +103,7 @@ while True:
         if turn == "Player 1":
 
             display_board(gameBoard)
+
             playerOneMove = player_choice(gameBoard)
 
             place_marker(gameBoard, player1_marker, playerOneMove)
@@ -117,9 +120,12 @@ while True:
                 else:
                     turn = "Player 2"
         else:
+            # player 2
 
             display_board(gameBoard)
             playerTwoMove = player_choice(gameBoard)
+
+            print("JDFdnwnw")
             place_marker(gameBoard, player2_marker, playerTwoMove)
             display_board(gameBoard)
 
