@@ -13,6 +13,7 @@ def display_board(board):
     print('   |   |')
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
     print('   |   |')
+    print('____________________________________________________________________')
 
 def player_input():
     marker = ''
@@ -25,7 +26,6 @@ def player_input():
         return ('o', 'x')
 
 def place_marker(board, marker, position):
-    
     board[position] = marker
 
 
@@ -72,7 +72,7 @@ def player_choice(board):
 def replay():
     answer = ''
     while answer not in 'y n'.split():
-        answer = input('Do you want to play again? Y or N \n')
+        answer = raw_input('Do you want to play again? Y or N \n')
 
     answer = (True if answer == 'y' else False)
     return answer
